@@ -64,7 +64,7 @@ class Sample(object):
         """ Determine the temperature based on number of iterations """
         return self.linear_decrease_temp(numIterations)
 
-    def linear_decrease_temp(self, numInterations):
+    def linear_decrease_temp(self, numIterations):
         """
         The temperature determines how often a higher-energy candidate is selected.
         A temperature of 1 accepts all candidates regardless of energy,
@@ -97,6 +97,7 @@ class Sample(object):
             try:
                 return math.exp(round(delta, 4) / round(temperature, 4))
             except OverflowError as detail:
+                print("Overflow in calculation of P. Detail: ", detail)
                 return minTemp
         else:
             return 1
