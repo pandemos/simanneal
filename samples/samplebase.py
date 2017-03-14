@@ -66,7 +66,6 @@ class Sample(object):
 	def temp(self, numIterations):
 		""" Determine the temperature based on number of iterations """
 		denom = numIterations*self.alpha
-		#return 1000/denom if denom > 0 else 0
 		return self.maxCount/denom if denom > 0 else 0
 
 	def P(self, energy, newEnergy, temperature):
@@ -79,7 +78,6 @@ class Sample(object):
 		try:
 			return minTemp if temperature==0 else math.exp((round(delta,4)/round(temperature,4))) if temperature > minTemp else 1 # Is math.expm1 better for this?
 		except OverflowError as detail:
-			#print("Overflow:","delta=",round(delta,4),"temp=",round(temperature,4))
 			return minTemp
 		
 
