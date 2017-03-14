@@ -15,13 +15,14 @@ from simanneal.visualizer import GUI
 
 class Application(object):
     def __init__(self):
-        self.sample = TwoDimensionalSample()
-        self.sample.reportFunction = self.updateProgress
-
         self.buildUI()
         self.window.clearCanvas()
+
+        self.sample = TwoDimensionalSample()
+        self.sample.reportFunction = self.updateProgress
         self.genRandom2d(100)
 
+    def mainloop(self):
         self.window.master.mainloop()
 
     def buildUI(self):
@@ -185,4 +186,6 @@ class Application(object):
         self.sample.state = initialState
         self.updateUIFromSample()
 
-if __name__ == '__main__': application = Application()
+if __name__ == '__main__': 
+    application = Application()
+    application.mainloop()
