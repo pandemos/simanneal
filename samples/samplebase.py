@@ -62,9 +62,27 @@ class Sample(object):
 
     def temp(self, numIterations):
         """ Determine the temperature based on number of iterations """
-        return self.alpha
+        return self.linear_decrease_temp(numIterations)
+
+    def linear_decrease_temp(self, numInterations):
+        """
+        The temperature determines how often a higher-energy candidate is selected.
+        A temperature of 1 accepts all candidates regardless of energy,
+        while a temperature of 0 accepts only lower-energy candidates.
+
+        The linear decrease temperature decreases the temperature on every iteration,
+        by an amount equal to the current iteration count scaled by an alpha value in [0..1].
+
+        This is definitely nowhere near optimal for this use case, but it serves to illustrate
+        the behaviour of simulated annealing. 
+        """
+
         denom = numIterations*self.alpha
         return self.maxCount/denom if denom > 0 else 0
+    
+    def constant_temp(self, numIterations):
+        """ A constant temperature function. Using this isn't annealing, it's just random trials. """
+        return 1 + self.alpha
 
     def P(self, energy, newEnergy, temperature):
         """ Calculate the probability of switching to the new state """
