@@ -9,6 +9,7 @@ import math
 from Tkinter import *
 
 from twodimensional import TwoDimensionalSample
+from threedimensional import ThreeDimensionalSample
 from simanneal.timer import Timer
 from simanneal.visualizer import GUI
 
@@ -19,7 +20,7 @@ class Application(object):
 
         self.buildUI()
         self.window.clearCanvas()
-        self.genRandom(100)
+        self.genRandom2d(100)
 
         self.window.master.mainloop()
 
@@ -166,12 +167,21 @@ class Application(object):
     def import_bitmap(self):
         print("import_bitmap - not implemented")   
    
-    def genRandom(self, count):
+    def genRandom2d(self, count):
         initialState = []
-        for i in range(0,100):
+        for i in range(0, count):
             x, y = random.randint(0,180), random.randint(0,180)
             initialState.append( (x,y) )
 
+        self.sample.state = initialState
+        self.updateUIFromSample()
+    
+    def genRandom3d(self, count):
+        initialState = []
+        for i in range(0, count):
+            x, y, z = random.randint(0,180), random.randint(0,180), random.randint(0,180)
+            initialState.append( (x,y,z) )
+        
         self.sample.state = initialState
         self.updateUIFromSample()
 
