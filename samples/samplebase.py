@@ -95,9 +95,8 @@ class Sample(object):
             return minTemp
         elif temperature > minTemp:
             try:
-                return math.exp(round(delta, 4) / round(temperature, 4))
+                return math.exp(-1 * round(delta, 4) / round(temperature, 4))
             except OverflowError as detail:
-                print("Overflow in calculation of P. Detail: ", detail)
                 return minTemp
         else:
             return 1
