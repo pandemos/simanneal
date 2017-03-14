@@ -18,17 +18,18 @@ setup.py		-	distutil setup file
 simanneal/		-	Simulated Annealing Package
 	__init__.py	-	Used by distutils to find the package root, should be empty
 	Annealer.py	-	Core implementation
-	samples/	-	Sample package
-		__init__.py		-	Used by distutils to find the package root, should be empty
-		samplebase.py	-	Base class for samples, implements some simple defaults, children should only override what changes
-		trivial.py		-	Sample of using Annealer to optimize a small one-dimensional array
-		twodimensional.py	-	Sample of using Annealer to optimize a small two-dimensional array
-		threedimensional.py	-	Guess what this does.
-		visualizer.py		-	tkinter-based visualizer with threading for Annealer results (reusable for other data)
 	tests/		-	Unit tests
 		Annealer.py			- Unit tests for the core Annealer module
 		twodimensional.py	- Unit tests for Sample, as implemented in twodimesional (yeah, unusual)
+samples/	-	Sample package
+	__init__.py		-	Used by distutils to find the package root, should be empty
+	samplebase.py	-	Base class for samples, implements some simple defaults, children should only override what changes
+	trivial.py		-	Sample of using Annealer to optimize a small one-dimensional array
+	twodimensional.py	-	Sample of using Annealer to optimize a small two-dimensional array
+	threedimensional.py	-	Guess what this does.
+	visualizer.py		-	tkinter-based visualizer with threading for Annealer results (reusable for other data)
 
 Interesting samples:
     - simanneal/samples/twodimensional.py - Command line run of simulated annealing in two dimensions using random starting data and interesting default values.
+    - simanneal/samples/threedimensional.py - Command line run of simulated annealing in three dimensions using random starting data and interesting default values.
     - simanneal/samples/sample_visualizer.py - tkinter-based UI. Use 'random' to generate a random starting state or import some JSON data to start. the 'improve' button runs until the total energy of the system improves once. The 'anneal' button runs until a maximum energy threshold is reached. Requires tk to be installed on the host system.
