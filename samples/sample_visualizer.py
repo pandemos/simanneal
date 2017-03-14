@@ -12,20 +12,18 @@ from twodimensional import TwoDimensionalSample
 from simanneal.timer import Timer
 from simanneal.visualizer import GUI
 
-global window  
-
 class Application(object):
     def __init__(self):
         self.sample = TwoDimensionalSample()
         self.sample.reportFunction = self.updateProgress
 
-        self.buildUI(self.sample)
+        self.buildUI()
         self.window.clearCanvas()
         self.genRandom(100)
 
         self.window.master.mainloop()
 
-    def buildUI(self, sample):
+    def buildUI(self):
     
         self.window = GUI()
             
@@ -57,6 +55,10 @@ class Application(object):
         self.window.addButton("stop", stopButton)
         self.window.invertedAvailabilityButtons.append(stopButton)
 
+        f4 = self.window.addFrame("ui_controls", Frame(self.window.master))
+        exitButton = Button(f4, text="Exit", command=self.exit)
+        self.window.addButton("exit", exitButton)
+
         self.window.build()
 
     def updateUIFromSample(self):
@@ -66,6 +68,9 @@ class Application(object):
         # This sometimes crashes the python runtime... needs to be fixed
         self.sample.stop()
         self.updateUIFromSample()
+
+    def exit(self):
+        self.window.master.quit()
         
     def anneal(self):
         print("anneal")
@@ -101,7 +106,7 @@ class Application(object):
         while energy >= startEnergy:
             self.sample.state = self.sample.neighbor(self.sample.state)
             energy = self.sample.E(self.sample.state)
-            if self.sample.annealer.stop is True:
+            if hasattr(self.sample.annealer, 'stop') and self.sample.annealer.stop is True:
                 self.sample.annealer.stop = None
                 break;
 
