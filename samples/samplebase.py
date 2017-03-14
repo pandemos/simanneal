@@ -62,6 +62,7 @@ class Sample(object):
 
     def temp(self, numIterations):
         """ Determine the temperature based on number of iterations """
+        return self.alpha
         denom = numIterations*self.alpha
         return self.maxCount/denom if denom > 0 else 0
 
