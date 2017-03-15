@@ -3,7 +3,7 @@
 1. __*DONE*__ ~~Add code coverage calculation~~
 2. Clean up unit test suite, including improving the process to run it
 3. Add quality tests to improve coverage
-4. Add pycallgraph
+4. __*DONE*__ ~~Add pycallgraph~~
 5. Figure out whether annealing optimization is actually working
 6. Add REST API so visualizations can be done on web
 7. Replicate Tk visualizer functionality in web
