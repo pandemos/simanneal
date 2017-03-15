@@ -1,6 +1,6 @@
 # TODO List
 
-1. Add code coverage calculation
+1. __DONE__ --Add code coverage calculation--
 2. Clean up unit test suite, including improving the process to run it
 3. Add quality tests to improve coverage
 4. Add pycallgraph
