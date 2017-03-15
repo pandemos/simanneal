@@ -1,7 +1,7 @@
 # TODO List
 
 1. Add code coverage calculation
-2. Clean up unit test suite
+2. Clean up unit test suite, including improving the process to run it
 3. Add quality tests to improve coverage
 4. Add pycallgraph
 5. Add REST API so visualizations can be done on web

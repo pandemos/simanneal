@@ -2,7 +2,7 @@ import unittest
 import copy
 import math
 
-from simanneal.Annealer import Annealer
+from simanneal.Annealer import annealer
 
 class AnnealerTests(unittest.TestCase):
     """ This was meant to be core unit tests, but Annealer really just
@@ -23,7 +23,7 @@ class AnnealerTests(unittest.TestCase):
 
     def setUp(self):
         self.initialState = [12, 2, 14, 0, 5, 13, 6, 8, 3, 10, 4, 11, 7, 9, 1]
-        self.annealer = Annealer(initialState = self.initialState,
+        self.annealer = annealer(initialState = self.initialState,
         maxCount = 10000,
         minEnergy = 0,
         neighborFunction = self.neighborTest,

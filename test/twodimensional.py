@@ -2,7 +2,7 @@ import unittest
 import copy
 import math
 
-from simanneal.samples.twodimensional import TwoDimensionalSample
+from samples.twodimensional import TwoDimensionalSample
 
 class TwoDimensionalSampleTest(unittest.TestCase):
     
