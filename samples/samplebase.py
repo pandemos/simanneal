@@ -40,7 +40,8 @@ class Sample(object):
         """ In this sample, new candidates (neighbor states) are constructed by
         stepping through the previous state and swapping random elements"""
         
-        neighbor = copy.deepcopy(state) # Don't mutate the injected state
+        #neighbor = copy.deepcopy(state) # Don't mutate the injected state
+        neighbor = state
 
         next1 = random.randint(0, len(state)-1)
         next2 = random.randint(0, len(state)-1)

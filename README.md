@@ -30,9 +30,9 @@ This will install the simaneal package to Libs/site-packages
 	- twodimensional.py	- Unit tests for Sample, as implemented in twodimesional (yeah, unusual)
 
 ## Interesting samples
-    - samples/twodimensional.py - Command line run of simulated annealing in two dimensions using random starting data and interesting default values.
-    - samples/threedimensional.py - Command line run of simulated annealing in three dimensions using random starting data and interesting default values.
-    - samples/sample_visualizer.py - tkinter-based UI. Use 'random' to generate a random starting state or import some JSON data to start. the 'improve' button runs until the total energy of the system improves once. The 'anneal' button runs until a maximum energy threshold is reached. Requires tk to be installed on the host system.
+    - `samples/twodimensional.py` - Command line run of simulated annealing in two dimensions using random starting data and interesting default values.
+    - `samples/threedimensional.py` - Command line run of simulated annealing in three dimensions using random starting data and interesting default values.
+    - `samples/sample_visualizer.py` - tkinter-based UI. Use 'random' to generate a random starting state or import some JSON data to start. the 'improve' button runs until the total energy of the system improves once. The 'anneal' button runs until a maximum energy threshold is reached. Requires tk to be installed on the host system.
 
 ## Tests
 
@@ -48,4 +48,10 @@ Then view the code coverage report:
 ```
 coverage report -m
 ```
+## Call Graph
 
+pycallgraph support is included. To use it, you must be in the appropriate directory. This example runs the two dimensional sample and generate the call graph in `pycallgraph.png`:
+
+```
+pushd samples ; pycallgraph graphviz -- ./twodimensional.py ; popd
+```
